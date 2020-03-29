@@ -1,0 +1,7 @@
+CREATE TABLE account(
+    id VARCHAR(20) PRIMARY KEY,
+    nick VARCHAR(20) NOT NULL,
+    email CHARACTER VARYING(100) NOT NULL UNIQUE,
+    pass VARCHAR(20) NOT NULL,
+    joining VARCHAR(50) NOT NULL
+    );
