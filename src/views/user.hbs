@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <style type="text/css">
+        ._{
+            font-size:200%;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="lead _">User Info</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="lead">Id</th>
+                                    <th class="lead">Name</th>
+                                    <th class="lead">Email</th>
+                                    <th class="lead">Pass</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                {{#each profile}}
+                                    <tr>
+                                        <td>{{id}}</td>                                        
+                                        <td>{{nick}}</td>                                        
+                                        <td>{{email}}</td>                                        
+                                        <td>{{pass}}</td>                                        
+                                    </tr>   
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        {{#each profile}}
+                            <button class="btn btn-primary logout" onclick="salir()">Log out</button>
+                            <a href="/delete/{{id}}" class="btn btn-danger">Delete Account</a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+  function salir(){
+    var _confirm = confirm('Logout')
+    if (_confirm == true) {
+        window.open('/logout', '_self')
+    } 
+    return false
+  }
+      
+</script>
+</body>
+</html>
